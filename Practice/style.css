@@ -6,3 +6,12 @@ i{
     height: 0;
     display: none !important;
 }
+
+.shadow{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    transition: 0.5s;
+}
+.extra-shadow{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px !important;
+    transition: 0.5s;
+}

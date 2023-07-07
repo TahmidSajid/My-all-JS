@@ -993,16 +993,217 @@
 
 //     }
 // })
-var myDiv = document.getElementsByClassName('logo')[0]
-document.addEventListener("scroll",function(){
+// var myDiv = document.getElementsByClassName('logo')[0]
+// document.addEventListener("scroll",function(){
 
-    if(window.scrollY>270){
-        myDiv.classList.add("vanish");
+//     if(window.scrollY>270){
+//         myDiv.classList.add("vanish");
         
-    }
-    if(window.scrollY<900)
-    {
-        myDiv.classList.remove("vanish");
-    }
-})
+//     }
+//     if(window.scrollY<900)
+//     {
+//         myDiv.classList.remove("vanish");
+//     }
+// })
 // console.log(document.body.scrollY);
+
+
+
+
+
+// var win = 0;
+// var lose = 0
+
+// for(x=0;x<5;x++){
+//     var inputNumber = prompt("enter a number:");
+//     var Randomnumber = Math.round((Math.random()*5)+1);
+//     console.log(Randomnumber);
+//     if(inputNumber==Randomnumber){
+//         console.log("you win");
+//         win++
+//     }
+//     else{
+//         console.log("you lose");
+//         lose++
+//     }
+// }
+
+// document.write("you win"+win+"times");
+// document.write("you lose"+lose+"times");
+
+
+// var date = new Date();
+// console.log(date);
+
+// console.log(date.getMonth());
+// console.log(date.getHours());
+// console.log(date.getMinutes());
+// console.log(date.getFullYear());
+
+
+
+
+// var all_list = document.getElementById("my-list");
+
+// console.log(all_list.querySelector(".list-line"));
+
+// var single_list = all_list.getElementsByClassName("list-line")[0];
+// console.log(single_list);
+
+
+// var my_list = document.querySelector("#my-list");
+
+// var my_li = my_list.querySelector(".list-line");
+
+// var my_link = my_li.querySelector("a");
+
+// my_link.innerHTML="hello sir";
+
+// my_link.style.textDecoration ="none";
+
+// my_link.style.color="black";
+
+
+// var my_ul = document.querySelector("#my-list");
+
+// var my_li = my_ul.children[0];
+
+// var my_a = my_li.children[0];
+
+// var my_text = document.createTextNode("hello antor");
+
+// my_a.appendChild(my_text);
+
+
+// var heading = document.createElement("h1");
+
+// var myText = document.createTextNode("hello everyone");
+
+// heading.appendChild(myText);
+// my_a.appendChild(heading);
+
+
+// var my_ul = document.querySelector("#my-list");
+// var my_li = my_ul.children[0];
+
+// var my_li_2 = my_li.nextElementSibling;
+// var my_li_3 = my_li_2.nextElementSibling;
+
+// console.log(my_li_3);
+
+// var text = document.createTextNode("all is well");
+// my_li_3.appendChild(text);
+
+// var my_li = document.querySelectorAll(".list-line")[1];
+
+// var txt = document.createTextNode("no one is here");
+
+// my_li.appendChild(txt);
+
+// var my_ul = my_li.parentElement;
+// console.log(my_ul);
+
+// var my_ul = document.querySelector("#my-list");
+
+
+
+// function myfunction() {
+//     for(x=0;x<4;x++){
+//         var my_li = my_ul.querySelectorAll(".list-line")[x];
+//         my_li.innerHTML="hello every one";
+//     }
+// }
+
+
+// var dialouges = ["hello bros","how are you","going well","goodbye"];
+
+// var count = 0;
+
+// function myfunction(){
+//     if(count<4){
+//         var my_li = document.querySelectorAll(".list-line")[count];
+//         my_li.innerHTML = dialouges[count];
+//         count++;
+//     }
+//     else{
+//         count = 0;
+//         document.querySelectorAll(".list-line")[0].innerHTML="";
+//         document.querySelectorAll(".list-line")[1].innerHTML="";
+//         document.querySelectorAll(".list-line")[2].innerHTML="";
+//         document.querySelectorAll(".list-line")[3].innerHTML="";
+//     }
+// }
+
+
+// var my_button = document.querySelectorAll("button")[0];
+// my_button.addEventListener("click",function(){
+//     myfunction()
+// });
+
+// var dialouges = ["hello bros","how are you","going well","goodbye"];
+
+// var count = 0;
+
+// function myfunction(){
+//     if(count<4){
+//         var my_li = document.querySelectorAll(".list-line")[count];
+//         my_li.innerHTML = dialouges[count];
+//         console.log(my_li);
+//         count++;
+//     }
+//     else{
+//         count = 0;
+//         document.querySelectorAll(".list-line")[0].innerHTML="";
+//         document.querySelectorAll(".list-line")[1].innerHTML="";
+//         document.querySelectorAll(".list-line")[2].innerHTML="";
+//         document.querySelectorAll(".list-line")[3].innerHTML="";
+//     }
+// }
+
+// var my_ul = document.querySelector("#my-list");
+// for(x=0;x<4;x++){
+//     var icon = my_ul.children[x].children;
+//     let my_li = my_ul.children[x];
+//     console.log(my_li);
+//     my_li.addEventListener("click",function(){add_shadow(my_li)})
+// }
+
+// function add_shadow(x){
+//     x.classList.toggle("shadow");
+//     x.classList.toggle("extra-shadow");
+//     console.log(x);
+// }
+
+var my_ul = document.querySelector("#my-list");
+for(x=0;x<4;x++){
+    let my_li = my_ul.children[x];
+    let my_value = my_li.children[0].children[0];
+    console.log(my_li);
+    my_li.addEventListener("click",function(){
+        add_shadow(my_li);
+        let value = my_value.innerHTML;
+        add_sound(value);
+    })
+}
+
+function add_shadow(x){
+    x.classList.toggle("shadow");
+    x.classList.toggle("extra-shadow");
+    setTimeout(function(){
+        x.classList.toggle("shadow");
+        x.classList.toggle("extra-shadow");
+    },5000)
+}
+function add_sound(x){
+    var audio1 = new Audio('bird.mp3');
+    var audio2 = new Audio('Human.mp3');
+    switch (x) {
+        case "a":
+            audio1.play();
+            break;
+        
+        case "b":
+            audio2.play();
+            break;
+    }
+}
