@@ -54,7 +54,7 @@ table_div.classList.add("justify-content-between");
 
 var str = " ";
 
-var signs = ["+","-","*","/","=",".","AC"];
+var signs = ["+","-","*","/","=",".","AC","C"];
 
 
 
@@ -136,33 +136,46 @@ signs.forEach((element,index)=>{
     sign_button.addEventListener("click",function() {
         str = str+this.innerHTML;
         input_fill.setAttribute("value",str);
-        if(element!="=" && element!="."){
+        if(element!="=" && element!="." && element!="C"){
             set_icon = element;
         }
         if(this.innerHTML== "AC"){
             str = " ";
             input_fill.setAttribute('value',str);
         }
+        if(this.innerHTML== "C"){
+            let str_len = str.length-2;
+            str = str.slice(0,str_len);
+            input_fill.setAttribute("value",str);
+        }
         if(this.innerHTML == "="){
             if(set_icon == "+"){
                 var new_input = str.split("+");
                 var calcu = parseFloat(new_input[0]) + parseFloat(new_input[1]);
-                input_fill.setAttribute("value",calcu);
+                str = " ";
+                str = " "+calcu;
+                input_fill.setAttribute("value",str);
             }
             if(set_icon == "-"){
                 var new_input = str.split("-");
                 var calcu = parseFloat(new_input[0]) - parseFloat(new_input[1]);
-                input_fill.setAttribute("value",calcu);
+                str = " ";
+                str = " "+calcu;
+                input_fill.setAttribute("value",str);
             }
             if(set_icon == "/"){
                 var new_input = str.split("/");
                 var calcu = parseFloat(new_input[0]) / parseFloat(new_input[1]);
-                input_fill.setAttribute("value",calcu);
+                str = " ";
+                str = " "+calcu;
+                input_fill.setAttribute("value",str);
             }
             if(set_icon == "*"){
                 var new_input = str.split("*");
                 var calcu = parseFloat(new_input[0]) * parseFloat(new_input[1]);
-                input_fill.setAttribute("value",calcu);
+                str = " ";
+                str = " "+calcu;
+                input_fill.setAttribute("value",str);
             }
         }
     })
@@ -172,9 +185,26 @@ signs.forEach((element,index)=>{
 var last_number_col = document.querySelectorAll("td")[9];
 last_number_col.setAttribute('colspan',3)
 last_number_col.firstChild.style.width = '124px';
-var last_sign_col = document.querySelectorAll("td")[18];
-last_sign_col.setAttribute('colspan',2)
-last_sign_col.firstChild.style.width = '82px';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var last_sign_col = document.querySelectorAll("td")[18];
+// last_sign_col.setAttribute('colspan',2)
+// last_sign_col.firstChild.style.width = '82px';
 
 
 
