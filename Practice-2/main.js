@@ -151,28 +151,56 @@ signs.forEach((element,index)=>{
         if(this.innerHTML == "="){
             if(set_icon == "+"){
                 var new_input = str.split("+");
-                var calcu = parseFloat(new_input[0]) + parseFloat(new_input[1]);
+                var calcu = 0;
+                sum(new_input)
+                function sum(len){
+                    for(x=0;x<len.length;x++){
+                        calcu = calcu + parseFloat(len[x]);
+                    };
+                }
+                // var calcu = parseFloat(new_input[0]) + parseFloat(new_input[1]);
                 str = " ";
                 str = " "+calcu;
                 input_fill.setAttribute("value",str);
             }
             if(set_icon == "-"){
                 var new_input = str.split("-");
-                var calcu = parseFloat(new_input[0]) - parseFloat(new_input[1]);
+                var calcu = new_input[0];
+                sub(new_input)
+                function sub(len){
+                    for(x=1;x<len.length;x++){
+                        calcu = calcu - parseFloat(len[x]);
+                    };
+                }
+                // var calcu = parseFloat(new_input[0]) - parseFloat(new_input[1]);
                 str = " ";
                 str = " "+calcu;
                 input_fill.setAttribute("value",str);
             }
             if(set_icon == "/"){
                 var new_input = str.split("/");
-                var calcu = parseFloat(new_input[0]) / parseFloat(new_input[1]);
+                var calcu = new_input[0];
+                div(new_input)
+                function div(len){
+                    for(x=1;x<len.length;x++){
+                        calcu = calcu / parseFloat(len[x]);
+                    };
+                }
+                // var calcu = parseFloat(new_input[0]) / parseFloat(new_input[1]);
                 str = " ";
                 str = " "+calcu;
                 input_fill.setAttribute("value",str);
             }
             if(set_icon == "*"){
                 var new_input = str.split("*");
-                var calcu = parseFloat(new_input[0]) * parseFloat(new_input[1]);
+                var calcu = new_input[0];
+                mul(new_input)
+                function mul(len){
+                    for(x=1;x<len.length;x++){
+                        calcu = calcu * parseFloat(len[x]);
+                    };
+                }
+                // var calcu = parseFloat(new_input[0]) * parseFloat(new_input[1]);
                 str = " ";
                 str = " "+calcu;
                 input_fill.setAttribute("value",str);
