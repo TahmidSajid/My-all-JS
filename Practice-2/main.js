@@ -149,62 +149,14 @@ signs.forEach((element,index)=>{
             input_fill.setAttribute("value",str);
         }
         if(this.innerHTML == "="){
-            if(set_icon == "+"){
-                var new_input = str.split("+");
-                var calcu = 0;
-                sum(new_input)
-                function sum(len){
-                    for(x=0;x<len.length;x++){
-                        calcu = calcu + parseFloat(len[x]);
-                    };
-                }
-                // var calcu = parseFloat(new_input[0]) + parseFloat(new_input[1]);
-                str = " ";
-                str = " "+calcu;
-                input_fill.setAttribute("value",str);
-            }
-            if(set_icon == "-"){
-                var new_input = str.split("-");
-                var calcu = new_input[0];
-                sub(new_input)
-                function sub(len){
-                    for(x=1;x<len.length;x++){
-                        calcu = calcu - parseFloat(len[x]);
-                    };
-                }
-                // var calcu = parseFloat(new_input[0]) - parseFloat(new_input[1]);
-                str = " ";
-                str = " "+calcu;
-                input_fill.setAttribute("value",str);
-            }
-            if(set_icon == "/"){
-                var new_input = str.split("/");
-                var calcu = new_input[0];
-                div(new_input)
-                function div(len){
-                    for(x=1;x<len.length;x++){
-                        calcu = calcu / parseFloat(len[x]);
-                    };
-                }
-                // var calcu = parseFloat(new_input[0]) / parseFloat(new_input[1]);
-                str = " ";
-                str = " "+calcu;
-                input_fill.setAttribute("value",str);
-            }
-            if(set_icon == "*"){
-                var new_input = str.split("*");
-                var calcu = new_input[0];
-                mul(new_input)
-                function mul(len){
-                    for(x=1;x<len.length;x++){
-                        calcu = calcu * parseFloat(len[x]);
-                    };
-                }
-                // var calcu = parseFloat(new_input[0]) * parseFloat(new_input[1]);
-                str = " ";
-                str = " "+calcu;
-                input_fill.setAttribute("value",str);
-            }
+            let str_len = str.length-1;
+            str = str.slice(0,str_len);
+            input_fill.setAttribute("value",str);
+            var calcu = eval(str);
+            str = " ";
+            str = " "+calcu;
+            input_fill.setAttribute("value",str);
+
         }
     })
 })
@@ -226,7 +178,62 @@ last_number_col.firstChild.style.width = '124px';
 
 
 
-
+            // if(set_icon == "+"){
+            //     var new_input = str.split("+");
+            //     var calcu = 0;
+            //     sum(new_input)
+            //     function sum(len){
+            //         for(x=0;x<len.length;x++){
+            //             calcu = calcu + parseFloat(len[x]);
+            //         };
+            //     }
+            //     // var calcu = parseFloat(new_input[0]) + parseFloat(new_input[1]);
+            //     str = " ";
+            //     str = " "+calcu;
+            //     input_fill.setAttribute("value",str);
+            // }
+            // if(set_icon == "-"){
+            //     var new_input = str.split("-");
+            //     var calcu = new_input[0];
+            //     sub(new_input)
+            //     function sub(len){
+            //         for(x=1;x<len.length;x++){
+            //             calcu = calcu - parseFloat(len[x]);
+            //         };
+            //     }
+            //     // var calcu = parseFloat(new_input[0]) - parseFloat(new_input[1]);
+            //     str = " ";
+            //     str = " "+calcu;
+            //     input_fill.setAttribute("value",str);
+            // }
+            // if(set_icon == "/"){
+            //     var new_input = str.split("/");
+            //     var calcu = new_input[0];
+            //     div(new_input)
+            //     function div(len){
+            //         for(x=1;x<len.length;x++){
+            //             calcu = calcu / parseFloat(len[x]);
+            //         };
+            //     }
+            //     // var calcu = parseFloat(new_input[0]) / parseFloat(new_input[1]);
+            //     str = " ";
+            //     str = " "+calcu;
+            //     input_fill.setAttribute("value",str);
+            // }
+            // if(set_icon == "*"){
+            //     var new_input = str.split("*");
+            //     var calcu = new_input[0];
+            //     mul(new_input)
+            //     function mul(len){
+            //         for(x=1;x<len.length;x++){
+            //             calcu = calcu * parseFloat(len[x]);
+            //         };
+            //     }
+            //     // var calcu = parseFloat(new_input[0]) * parseFloat(new_input[1]);
+            //     str = " ";
+            //     str = " "+calcu;
+            //     input_fill.setAttribute("value",str);
+            // }
 
 
 
