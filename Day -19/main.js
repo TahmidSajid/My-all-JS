@@ -1,19 +1,19 @@
-// function studentsDetails(name,age,shift){
-//     return{
-//         name,
-//         age,
-//         shift,
-//         'disply all'(){
-//             console.log(this.name);
-//             console.log(this.age);
-//             console.log(this.shift);
-//         }
-//     }
-// }
+function studentsDetails(name,age,shift){
+    return{
+        name,
+        age,
+        shift,
+        'disply all'(){
+            console.log(this.name);
+            console.log(this.age);
+            console.log(this.shift);
+        }
+    }
+}
 
-// let student1 = studentsDetails("tanim", 24 , "morning")
+let student1 = studentsDetails("tanim", 24 , "morning")
 
-// student1['disply all']();
+student1['disply all']();
 
 
 // for of loop
