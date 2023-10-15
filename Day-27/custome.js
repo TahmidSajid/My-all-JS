@@ -50,6 +50,14 @@
 //     console.log('this is 8');
 // }
 
+
+
+
+
+//*******  call back hell  *******/ 
+
+
+
 // task1(()=>{
 //     task2(()=>{
 //         task3(()=>{
@@ -65,3 +73,62 @@
 //         });
 //     });
 // });
+
+
+
+const task1 = () =>{
+    return new Promise ((resolve,reject)=>{
+        let printing = 1;
+        if(printing){
+            resolve('this is task 1');
+        }
+        else{
+            reject('failed1');
+        }
+    })
+}
+const task2 = () =>{
+    return new Promise ((resolve,reject)=>{
+        let printing = 1;
+        if(printing){
+            resolve('this is task 2');
+        }
+        else{
+            reject('failed2');
+        }
+    })
+}
+const task3 = () =>{
+    return new Promise ((resolve,reject)=>{
+        let printing = 1;
+        if(printing){
+            resolve('this is task 3');
+        }
+        else{
+            reject('failed3');
+        }
+    })
+}
+const task4 = () =>{
+    return new Promise ((resolve,reject)=>{
+        let printing = 1;
+        if(printing){
+            resolve('this is task 4');
+        }
+        else{
+            reject('failed4');
+        }
+    })
+}
+
+task1().then((x)=>{
+    console.log(x);
+}).then(task2).then((x)=>{
+    console.log(x);
+}).then(task3).then((x)=>{
+    console.log(x);
+}).then(task4).then((x)=>{
+    console.log(x);
+}).catch((y)=>{
+    console.log(y)
+})
