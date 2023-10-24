@@ -1,0 +1,16 @@
+.main_div{
+    position: relative;
+}
+.normal{
+    position: absolute;
+    left: 2px;
+    top : 1px;
+    background-color: white;
+    transition: 0.5s;
+}
+.focused{
+    position: absolute;
+    left: 2px;
+    top : 1px;
+    transform: translateY(-10px) scale(0.9);
+}
