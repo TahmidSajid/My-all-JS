@@ -1,124 +1,149 @@
+// ******** bootstrap page setup start **********
 
+// ******** Row creating **********
 var row_c = document.createElement("div");
 document.body.appendChild(row_c);
 row_c.classList.add("row");
 
+// ******** coloumn creating ******** 
 var col_c = document.createElement("div");
-row_c.appendChild(col_c);
 col_c.classList.add("col-lg");
 col_c.classList.add("offset-lg-5");
 
+
+// ******** inserting coloumn in row ************  
+row_c.appendChild(col_c);
+
+// ******** creating card *********** 
 var full_card = document.createElement("div");
+
+
+// ******** inserting card *********
 col_c.appendChild(full_card);
+
+
+// ******** inserting card class *********
 full_card.classList.add("card");
 full_card.classList.add("card-width");
 
+
+// ******** inserting card body **********
 var card_bdy = document.createElement("div");
 full_card.appendChild(card_bdy);
+
+
+// ******** inserting card class *********
 card_bdy.classList.add("card-body")
 card_bdy.classList.add("card-width");
+
+
+// ******** insert input field **********
 var input_fill  = document.createElement("input");
 card_bdy.appendChild(input_fill);
 input_fill.style.width = "213px";
 input_fill.style.marginBottom = "5px";
 input_fill.setAttribute('readonly',0);
 
+
+// ******** creating div for buttons **********
 var table_div = document.createElement("div");
 card_bdy.appendChild(table_div);
 table_div.classList.add("d-flex");
 table_div.classList.add("justify-content-between");
 
 
+// ******** bootstrap page setup end **********
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// ******** blank string ********* 
 var str = " ";
 
+
+// ******** signs needed for calculator ********* 
 var signs = ["+","-","*","/","=",".","AC","C"];
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// ******** creating table for numbers **********
 document.write("<table>")
 var fst_table = document.querySelectorAll("table")[0];
 table_div.appendChild(fst_table);
 fst_table.setAttribute("border","0");
 fst_table.setAttribute("colspan","0");
+
+
+// ********* creating table row by loop ********
 for(x=0;x<4;x++){
     document.write("<tr>")
+
+
+//  ********* creating table column by loop ********
     for(y=0;y<3;y++){
         document.write("<td>");
         document.write("</td>");
     }
+// ******** ending table column loop ********
+
     document.write("</tr>")
 }
+// ******** ending table row loop ********
+
 document.write("</table>")
+
+// ******** ending table creation ********
+
+
+//  catching all the number coloumn by loop ******* 
 for(i=0;i<10;i++){
     let number_col =  document.querySelectorAll("td")[i];
     number_col.classList.add("Number_col")
 }
 
+
+// ******** creating table for signs **********
 document.write("<table>")
-var snd_table = document.querySelectorAll("table")[1];
-table_div.appendChild(snd_table);
+
+// ******** creating table row by loop **********
 for(x=0;x<4;x++){
     document.write("<tr>")
+
+// ******** creating table column by loop **********
     for(y=0;y<2;y++){
         document.write("<td>");
         document.write("</td>");
     }
+// ******** ending table column loop ********
+
     document.write("</tr>")
 }
+
+// ******** ending table row loop ********
 document.write("</table>")
+
+// ******** ending table creation ********
+
+
+// ******** inserting sign table in div ******** 
+var snd_table = document.querySelectorAll("table")[1];
+table_div.appendChild(snd_table);
+
+
+// ******** catching sign column of sign table *********
 for(i=10;i<17;i++){
     let sign_col =  document.querySelectorAll("td")[i];
     sign_col.classList.add("Sign_col")
 }
 
 
-
+// ************ creating number buttons by loop and inserting them in number table column *************
     for(i=0;i<10;i++){
         var button = document.createElement("button");
         button.classList.add("button_width");
         let number_col =  document.querySelectorAll("td")[i];
         number_col.appendChild(button);
         var number = document.querySelectorAll("button")[i].innerHTML=i;
+
+// ************* adding event listener to every number button ***************
         button.addEventListener("click",function(){
             str = str + this.innerHTML
             input_fill.setAttribute("value",str);
@@ -126,16 +151,23 @@ for(i=10;i<17;i++){
     }
 
 
+// ************ creating signs buttons by loop and inserting them in sign table column *************
 signs.forEach((element,index)=>{
     var sign_button = document.createElement("button");
     sign_button.classList.add("button_width");
     sign_button.classList.add("sign_button");
     let sign_col =  document.querySelectorAll("td")[index+12];
     sign_col.appendChild(sign_button);
+
+// ************ inserting every sign in sign buttons from arryy *************
     document.querySelectorAll(".sign_button")[index].innerHTML= element;
+
+// ************* adding event listener to every sign buttons ************ 
     sign_button.addEventListener("click",function() {
         str = str+this.innerHTML;
         input_fill.setAttribute("value",str);
+
+// *********** condition for non mathmatical sign buttons ************** 
         if(element!="=" && element!="." && element!="C"){
             set_icon = element;
         }
@@ -161,6 +193,8 @@ signs.forEach((element,index)=>{
     })
 })
 
+
+// ****************** designing the last number 9 button ********************
 
 var last_number_col = document.querySelectorAll("td")[9];
 last_number_col.setAttribute('colspan',3)
